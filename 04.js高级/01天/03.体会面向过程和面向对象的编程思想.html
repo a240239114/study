@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+       div{
+          width: 200px;
+          height:200px;
+          background-color: red;
+       }
+	</style>
+</head>
+<body>
+   <input type="button" value="点击按钮" id="btn">
+   <div id="dv"></div>
+   <script>
+       //把获取按钮封装在函数里
+       getId=function(id){
+       	   return typeof(id)==="string"?document.getElementById(id):id;
+       };
+       getId(btn).onclick=function() {
+       	   getId(dv).style.backgroundColor="yellow";
+       };
+       // document.getElementById("btn").onclick=function(){
+       // 	  document.getElementById("dv").style.backgroundColor="yellow";
+       // };
+   </script>
+</body>
+</html>

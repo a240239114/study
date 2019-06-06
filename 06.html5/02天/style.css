@@ -1,0 +1,4 @@
+body::before{
+	content: 'CSS注入的内容';
+	font-size: 50px;
+}

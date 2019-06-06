@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html li, body li {
+  font-size: 12px;
+  line-height: 30px;
+}
+
+html .box, body .box {
+  width: 220px;
+  height: 220px;
+  background: url("../images/123.jpg");
+  background-size: cover;
+}
+/*# sourceMappingURL=index.css.map */

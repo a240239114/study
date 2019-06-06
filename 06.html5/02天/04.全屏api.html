@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <title>data attr</title>
+</head>
+ 
+<body>
+  <div class="tabs">
+    <ul>
+      <li data-target=".panel-news" id="li">新闻</li>
+      <li data-target=".panel-bagua">八卦</li>
+      <li data-target=".panel-sport">体育</li>
+    </ul>
+    <div class="panels">
+      <div class="panel-news" id="dv">12321456a4165sa4564da65s4d56a4sd56a4sd654asd654a65sd465a4sd654asd654a65sd465as4d65a4sd654asd564a65sd465as4d65a4sd56a4sd564asd654as56d465as4d65as4d65a4sd65a4sd654asd654asd654as65d465asd465asd465as4d65</div>
+      <div class="panel-bagua"></div>
+      <div class="panel-sport"></div>
+    </div>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li data-target=".panel-news">新闻</li>
+      <li data-target=".panel-bagua">八卦</li>
+      <li data-target=".panel-sport">体育</li>
+    </ul>
+    <div class="panels">
+      <div class="panel-news"></div>
+      <div class="panel-bagua"></div>
+      <div class="panel-sport"></div>
+    </div>
+  </div>
+  <script>
+     //获取li
+     var list=document.querySelector('#li');
+     //获取dv
+     var div=document.querySelector('#dv');
+     list.addEventListener('click',function(e){
+        if(document.body.webkitRequestFullScreen){  
+            document.body.webkitRequestFullScreen();
+          }else{
+             console.log('不支持');
+             e.preventDefault();
+         }
+
+        // if(div.webkitRequestFullScreen){  
+        //  div.webkitRequestFullScreen();
+        // }else{
+        //   console.log('不支持');
+        //   e.preventDefault();
+        // }
+     });
+  </script>
+</body>
+ 
+</html>
+两个属性:webkitRequestFullScreen====>google
+         requestFullScreen=====>ie8

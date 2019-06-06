@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        //作用域链
+        var num=10;
+        function f1() {
+      	var num=20;
+         function f2(){
+            // var num=30;
+            console.log(num);
+      	  }
+          f2();
+        }
+        f1();
+
+        // //预解析:就是在浏览器解析代码之前,把变量的声明和函数的声明提前,提升到该作用域的最上面
+        // //变量的提升,只是声明提前
+        // console.log(num);//undifined
+        // var num=10;
+
+        // //函数的声明被提前,可以被执行
+        // f1();//我好帅
+        // function f1(){
+        //   console.log("我好帅");
+        // }
+        
+
+        // //不能被执行
+        // f2();//f2不是一个函数
+        // var f2=function(){
+        //   console.log("我好帅啊");
+        // }
+	</script>
+</body>
+</html>

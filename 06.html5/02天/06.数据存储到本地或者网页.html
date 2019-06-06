@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>localStorage(本地)====>sessionStorage(网页)</title>
+</head>
+<body>
+	<textarea id="txt_value" cols="80" row="50"></textarea>
+	<input type="button" value="get" id="get_btn">
+	<input type="button" value="set" id="set_btn">
+	<script>
+        var get_btn=document.querySelector('#get_btn');
+        var set_btn=document.querySelector('#set_btn');
+        var txt_value=document.querySelector('txt_value');
+        get_btn.addEventListener('click',function(){
+        	  if(window.localStorage){
+        	     txt_value.value=localStorage.getItem(key1);
+        	  }
+        	  // txt_value.value=localStorage[key1];
+        });
+        set_btn.addEventListener('click',function(){
+        	  if(window.localStorage){
+        	      localStorage[key1]=txt_value.value;
+        	  }
+        });
+        //????resouece插件怎么安装
+	</script>
+</body>
+</html>

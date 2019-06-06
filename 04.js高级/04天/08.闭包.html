@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	   //函数模式下的闭包
+	   function f1(){
+	   	 var num=10;
+	   	 function f2(){
+           console.log(num);
+	   	 }
+	   	 f2();
+	   }
+	   f1();
+
+
+	   //对象模式下的闭包
+       function f3() {
+       	   var num=10;
+       	   var obj={
+       	   	  age:num
+       	   };
+       	   console.log(obj.age);
+       }
+
+       f3();
+	</script>
+</body>
+</html>

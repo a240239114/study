@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+      .main {
+        margin: 100px auto;
+        width: 100px;
+        height: 100px;
+        position: relative;
+      }
+      .one {
+        position: absolute;
+        left: 40px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50px;
+        animation: move 1.5s infinite;
+      }
+      .two {
+        position: absolute;
+        right: 40px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50px;
+        animation: move 1.5s infinite;
+      }
+      .three {
+        position: absolute;
+        bottom: -40px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation: move 1.5s infinite;
+      }
+      @keyframes move {
+        0% {
+          transform: scale(1) rotate(45deg);
+        }
+
+        50% {
+          transform: scale(1.2) rotate(45deg);
+        }
+
+        100% {
+          transform: scale(1) rotate(45deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <span class="one"></span> <span class="two"></span>
+      <span class="three"></span>
+    </div>
+  </body>
+</html>

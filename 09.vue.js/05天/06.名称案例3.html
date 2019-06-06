@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>名称案例</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+	<div id="app">
+        <input type="text" v-model="firstName">+
+        <input type="text" v-model="lastName">=
+        <input type="text" v-model="fullName">
+
+        <p>{{fullName}}</p>
+        <p>{{fullName}}</p>
+	</div>
+
+	<script>
+        var vm=new Vue({
+        	el:'#app',
+        	data:{
+        		firstName:'',
+        		lastName:'',
+        	},
+        	methods:{},
+        	computed:{
+        	  'fullName':function(){
+        		console.log('ok')
+        		return this.firstName+this.lastName
+                  }
+        	}
+        });
+	</script>
+</body>
+</html>

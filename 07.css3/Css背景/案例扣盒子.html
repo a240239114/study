@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扣盒子</title>
+	<style type="text/css">
+        .dv1{
+        	width: 130px;
+        	height: 130px;
+        	margin: 100px auto;
+        	background-image: url(images/bg.jpg);
+        	background-repeat:no-repeat;
+        	position: relative;
+        }
+        .s1{ 
+        	z-index: 10;
+        	position: absolute;
+        	left:-100px;
+        	/*border:1px solid blue;*/
+        	width: 100%;
+            height: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            background-image: url(images/bg.jpg);
+            background-repeat:no-repeat;
+        }
+        .s2{
+            position: absolute;
+        	right:0px;
+        	/*border:1px solid blue;*/
+        	width: 100%;
+            height: 100%;
+            padding: 30px;
+            background-color:white;
+            box-sizing: border-box;
+            background-clip: content-box;
+        }
+	</style>
+</head>
+<body>
+	<div class="dv1">
+        <span class="s1"></span>
+        <span class="s2"></span>
+	</div>
+</body>
+</html>

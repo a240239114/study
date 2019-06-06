@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.1.js"></script>
+</head>
+<body>
+	<div class="container">
+          <header class="page-header"></header>
+          <p>这是一个段落</p>
+          <ul>
+        	<li class="item">item1</li>
+        	<li class="item">item2</li>
+        	<li class="item">item3</li>
+        	<li class="item">item4</li>
+        	<li class="item">item5</li>
+        	<li class="item">item6</li>
+        	<li class="item">item7</li>
+        	<li class="item">item8</li>
+        	<li class="item">item9</li>
+        	<li class="item">item10</li>
+          </ul>
+	</div>
+	<script>
+           (function(){
+           	//原生写法获取item
+           	var item=document.getElementsByClassName('item');
+           	console.log(item);
+           	//jq写法
+           	var item1=$('ul>.item');
+           	console.log(item1);
+           	//h5写法,返回第一个满足选择器条件的选择器
+           	var first_item=document.querySelector('.item');
+           	console.log(first_item);
+           	//返回所有的选择器
+           	var items=document.querySelectorAll('.item');
+           	console.log(items);
+           })();
+           //Classlist是
+	</script>
+</body>
+</html>

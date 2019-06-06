@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件的传值</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+	<script src="./lib/vue-router-3.0.1.js"></script>
+</head>
+<body>
+	<div id="app">
+	     <!-- 4.组件占位符 -->
+         <com1 v-bind:parentmsg='msg' v-on:func='mySonfromdata'></com1>  
+	</div>
+    
+    <!-- 2.设置templata的内容 -->
+	<template id="templ">
+        <div>
+           <h1>我真的好想你---{{parentmsg}}</h1>
+           <input type="button" value="Send" @click='myclick'>
+        </div>
+	</template>
+
+	<script>
+        //1.创建模板对象
+        var com1={
+        	template:'#templ',
+        	data(){
+        		return{
+        			sonMsg:'我爱你,陆洲'
+        		}
+        	},
+        	props:['parentmsg'],
+        	methods:{
+        		myclick(){
+                   this.$emit('func',this.sonMsg)
+        		}
+        	}
+
+        }
+
+        var vm=new Vue({
+        	el:'#app',
+        	data:{
+        	   msg:'我是父组件',
+        	   msgfromSon:''
+        	},
+        	methods:{
+                mySonfromdata(data){
+                   console.log('我爱你,陆洲')
+                   this.msgfromSon=data;
+                } 
+        	},
+        	//3.组件名字是com1
+        	components:{
+              com1
+        	}
+        });
+	</script>
+</body>
+</html>

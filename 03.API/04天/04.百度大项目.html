@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      #box {
+        width: 450px;
+        margin: 200px auto;
+      }
+
+      #txt {
+        width: 350px;
+      }
+
+      #pop {
+        width: 350px;
+        border: 1px solid red;
+      }
+
+      #pop ul {
+        margin: 10px;
+        padding: 0px;
+        width: 200px;
+        list-style-type: none;
+      }
+
+      #pop ul li {
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <input type="text" id="txt" value="" />
+      <input type="button" value="搜索" id="btn" />
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+      var keyWords = [
+        "小杨才是最纯洁的",
+        "小杨才是最帅的",
+        "小段是最猥琐的",
+        "小超是最龌龊的",
+        "传智播客是一个培训机构",
+        "传说在传智有个很帅很纯洁的小杨",
+        "苹果好吃",
+        "苹果此次召回还是没有中国"
+      ];
+      //给文本添加看盘抬起事件
+      My$("txt").onkeyup = function() {
+        if (My$("dv")) {
+          //删除一次
+          My$("box").removeChild(My$("dv"));
+        }
+        var text = this.value;
+        //创建新数组
+        var arr = [];
+        //判断输入的内容是否与数组keyWords中的部分对象的前面部分相同
+        //需要遍历
+        for (var i = 0; i < keyWords.length; i++) {
+          if (keyWords[i].indexOf(text) == 0) {
+            //成立
+            //将他放入新数组中去
+            arr.push(keyWords[i]);
+          } //end if
+        } //end for
+
+        //如果文本框是空的,临时数组是空的,不用创建div
+        if (text.length == 0 || arr.length == 0) {
+          if (My$("dv")) {
+            My$("box").removeChild(My$("dv"));
+          }
+          return;
+        }
+
+        //创建一个div
+        var newdiv = document.createElement("div");
+        //设置属性
+        newdiv.id = "dv";
+        newdiv.style.width = "350px";
+        // newdiv.style.height="100px";
+        newdiv.style.border = "1px solid green";
+        //添加到box中去
+        My$("box").appendChild(newdiv);
+
+        //循环遍历把新数组中的数据传入newdiv中去
+        for (var j = 0; j < arr.length; j++) {
+          //创建p标签,用来存储数组的数据
+          var objp = document.createElement("p");
+          My$("dv").appendChild(objp);
+          objp.innerText = arr[j];
+          objp.style.margin = 0;
+          objp.style.padding = 0;
+          objp.style.cursor = "pointer";
+          objp.style.marginTop = "5px";
+          objp.style.marginLeft = "5px";
+          //添加鼠标进入和离开事件
+          objp.addEventListener(
+            "mouseover",
+            function() {
+              objp.style.backgroundColor = "red";
+            },
+            false
+          );
+          objp.addEventListener(
+            "mouseout",
+            function() {
+              objp.style.backgroundColor = "";
+            },
+            false
+          );
+        }
+      };
+    </script>
+  </body>
+</html>

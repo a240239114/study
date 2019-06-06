@@ -1,0 +1,7 @@
+node_modules
+# 体积大
+.idea 
+# 编辑器的相关设置
+.vscode
+.git
+# git init 初始化就会出现这个文件夹

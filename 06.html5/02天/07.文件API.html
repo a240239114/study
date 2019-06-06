@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件API</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+</head>
+<body>
+	<form action="">
+	    <!-- 对于表单里的input来说,可以直接通过name找到
+	    document.forms[0].input_file -->
+	    <!-- multiple让文件域可以多选 -->
+        <input id="input_file" class="form-control hidden" type="file" name="input_file" multiple>
+        <input id="btn_select" class="btn btn-info" type="button" value="选择文件">
+        <!-- <input id="btn_read" class="btn btn-warning" type="button" value="读取文件列表"> -->
+        <ul id="file_list" class="list-group">
+        </ul>
+	</form>
+	<script>
+       var input_file=document.querySelector('#input_file');
+       var input_select=document.querySelector('#btn_select');
+       var btn_read=document.querySelector('#btn_read');
+       var file_list=document.querySelector('#file_list');
+       btn_select.addEventListener('click',function(){
+                 input_file.click();
+                 console.log("hah");
+        });
+
+       //给btn_read添加点击事件
+       // btn_read.addEventListener('click',function() {
+       // 	   //先获取文件
+       // 	   var files=input_file.files;
+       // 	   //循环遍历添加到ul中间去
+       // 	   for(var i=0;i<files.length;i++){
+       //        //创建li
+       //        var li=document.createElement('li');
+       //        //添加内容
+       //        li.innerHTML = '<h5 class="list-group-item-heading">' + files[i].name + '</h5><p class="list-group-item-text">' + files[i].lastModifiedDate.toLocaleDateString() + ' ' + files[i].lastModifiedDate.toLocaleTimeString() + ' ' + (files[i].size / 1024).toFixed(2) + 'KB</p>';
+       //            file_list.appendChild(li);
+       // 	   }
+       // });
+       
+
+       input_file.addEventListener('change',function(){
+           //先获取文件
+           var files=input_file.files;
+           //循环遍历添加到ul中间去
+           for(var i=0;i<files.length;i++){
+              //创建li
+              var li=document.createElement('li');
+              li.setAttribute('class', 'list-group-item');
+              //添加内容
+              li.innerHTML = '<h5 class="list-group-item-heading">' + files[i].name + '</h5><p class="list-group-item-text">' + files[i].lastModifiedDate.toLocaleDateString() + '' + files[i].lastModifiedDate.toLocaleTimeString() + ' ' + (files[i].size / 1024).toFixed(2) + 'KB</p>';
+                  file_list.appendChild(li);
+           } 
+       });
+	</script>
+</body>
+</html>

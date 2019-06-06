@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="jquery-1.12.1.js"></script>
+    <style>
+       .cls{
+           height: 200px;
+           width: 200px;
+       }
+    </style>
+    <script>
+        //页面加载事件
+        // $(function(){
+        //    $("#btn").click(function(){
+        //        $(".cls").css({"backgroundColor":"green","marginTop":"5px"});
+        //    });
+        // });
+        
+        //页面加载事件
+        $(function(){
+           $("#btn").click(function(){
+             $(".cls").css({"backgroundColor":"green","marginTop":"5px"})
+           })
+        })
+    </script>
+  </head>
+  <body>
+    <input type="button" value="改变样式" id="btn">
+    <div class="cls"></div>
+    <div class="cls"></div>
+  </body>
+</html>

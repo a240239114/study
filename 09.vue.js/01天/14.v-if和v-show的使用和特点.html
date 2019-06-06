@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	   <input type="button" value="toggle" @click="add">
+	   <!-- v-if是直接删除元素 -->
+       <p v-if="flag">这是v-if控制的p</p>
+       <!-- v-show是添加dispaly:none -->
+       <p v-show="flag">这是v-show控制的</p>
+	</div>
+	<script>
+       var vm=new Vue({
+       	   el:'#app',
+       	   data:{
+              flag:true
+       	   },
+       	   methods:{
+       	   	  add(){
+       	   	  	this.flag=!this.flag
+       	   	  }
+       	   }
+       });
+	</script>
+</body>
+</html>

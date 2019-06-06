@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./lib/animate.css">
+  <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+   <div id="app">
+       <input type="button" value="toggle" @click="flag=!flag">
+       <transition enter-active-class="bounceInDown" leave-active-class="bounceOut" :duretion="500">
+           <h1 v-if="flag" class="animated">我爱你,陆洲</h1>
+       </transition>
+   </div>
+
+   <script>
+       var vm=new Vue({
+          el:'#app',
+          data:{
+            flag:true
+          }
+       });
+   </script>
+</body>
+</html>

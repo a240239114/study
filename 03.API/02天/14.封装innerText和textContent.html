@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+       div{
+       	  width: 200px;
+       	  height:200px;
+       	  border: 2px solid red;
+       }
+	</style>
+	<script src="common.js"></script>
+</head>
+<body>
+	<input type="button" value="设置值" id="btn">
+	<div id="dv"></div>
+	<script>
+       //封装设置任意标签的任意文本内容
+       function setInnerText(element,text) {
+       	  if(typeof element.textContent=="undefined"){//不支持
+               element.innerText=text;
+       	  }else{
+       	  	   element.textContent=text;
+       	  }
+       }
+
+       //获取标签的文本内容
+       function getInnerText(element){
+          if(typeof element.textContent=="undefined"){
+          	  return element.innerText;
+          }else{
+          	  return element.textContent;
+          }
+       }
+
+       // //测试
+       // My$("btn").onclick=function(){
+       //     setInnerText(My$("dv"),"我变帅了");
+       // };
+	</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>轮播图</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .xiangkuang {
+        width: 200px;
+        height: 150px;
+        border: 1px solid red;
+        position: relative;
+        margin: 0 auto;
+      }
+      ul {
+        list-style: none;
+        height: 150px;
+        width: 600px;
+        position: absolute;
+        left: 0;
+      }
+      li:nth-child(1) {
+        width: 200px;
+        height: 150px;
+        background-color: aqua;
+        float: left;
+      }
+      li:nth-child(2) {
+        width: 200px;
+        height: 150px;
+        background-color: black;
+        float: left;
+      }
+      li:nth-child(3) {
+        width: 200px;
+        height: 150px;
+        background-color: yellow;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="xiangkuang" id="xiangkuang">
+      <ul id="ul">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script>
+      //根据ID获取元素
+      function My$(id) {
+        return document.getElementById(id);
+      }
+
+      let xiangkuang = My$("xiangkuang");
+      let ul = My$("ul");
+      //获取相框的宽度
+      let imgWidth = xiangkuang.offsetWidth;
+      //全局的索引
+      let pic = 0;
+      let timeId = setInterval(function() {
+        //向左移动
+        Animate(xiangkuang,-imgWidth);
+      }, 10);
+
+      //封装一个动画函数,参数是当前元素和移动距离
+      function Animate(el, target) {
+        //获取当前元素距离浏览器左边的距离
+        let current = el.offsetLeft;
+        let step = 10;
+        //确定移动方向
+        target > current ? step : -step;
+        current += step;
+        if(Math.abs(target-el)>Math.abs(step)){
+            el.style.left = current +'px';
+        }else{
+            clearInterval(timeId);
+            el.style.left = target +'px';
+        }
+      }
+    </script>
+  </body>
+</html>

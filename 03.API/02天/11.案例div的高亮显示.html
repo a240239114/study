@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+       *{
+       	 padding: 0px;
+       	 margin: 0px;
+       }
+       div{
+         background-color: green;
+         height: 200px;
+         width: 200px;
+         float: left;
+         margin-left: 10px;
+         border:2px solid green; 
+       }
+	</style>
+	<script src="common.js"></script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script>
+       var obj=document.getElementsByTagName("div");
+       for(var i=0;i<obj.length;i++){
+       	  obj[i].onmouseover=function() {
+       	  	 this.style.border="2px solid red";
+       	  };
+       	  obj[i].onmouseout=function() {
+       	  	 this.style.border="";
+       	  };
+       }
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //人的构造函数
+      function Person(name, age, sex, weihgt) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.weihgt = weihgt;
+      }
+      Person.prototype.sayHi = function() {
+        console.log("你好啊");
+      };
+
+      //学生的构造函数,利用函数继承Person的属性
+      function Student(name, age, sex, weihgt, score) {
+        Person.call(this, name, age, sex, weihgt);
+        this.score = score;
+      }
+
+      //利用原型对象来继承Person的方法,不传值就不继承属性
+      Student.prototype = new Person(); //不传值
+      Student.prototype.eat = function() {
+        console.log("吃东西");
+      };
+
+      //实例化对象Student
+      var stu1 = new Student("小明", 20, "男", "50kg", 100);
+      console.log(stu1.name, stu1.age, stu1.sex, stu1.weihgt, stu1.score);
+      stu1.sayHi();
+      stu1.eat();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>切割轮播图</title>
+	<style type="text/css">
+	    *{
+	    	padding: 0px;
+	    	margin: 0px;
+	    }
+        .main{
+        	height: 300px;
+        	width: 560px;
+        	margin: 100px auto;
+        	/*opacity: 0.5;*/
+        }
+        .main>ul{
+        	height: 100%;
+        	width: 100%;
+        	background-color: gray;
+        	list-style: none;
+        	transform-style: preserve-3d;
+        	transform: rotate3d(1,1,0,-30deg);
+        }
+        .main>ul>li{
+        	width: 20%;
+        	height: 100%;
+        	background-color: red;
+        	float: left;
+        	position: relative;
+        }
+        ul > li > span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .main>ul>li>span:nth-of-type(1){
+           background-image:url("images/q1.jpg");
+           transform: translateZ(150px);
+        }
+        .main>ul>li>span:nth-of-type(2){
+        	background-image:url("images/q2.jpg");
+        	transform: translateY(-150px) rotateX(90deg);
+        }
+        .main>ul>li>span:nth-of-type(3){
+        	background-image:url("images/q3.jpg");
+        	transform: translateZ(-150px) rotateX(180deg);
+        }
+        .main>ul>li>span:nth-of-type(4){
+        	background-image:url("images/q4.jpg");
+        	transform: translateY(150px) rotateX(-90deg); 
+        }
+      /*  ul>li:nth-of-type(1) span{
+        	background-position: 0 0;
+        }*/
+
+     /*   ul>li:nth-of-type(2) span{
+        	background-position: -100% 0;
+        }
+        ul>li:nth-of-type(3) span{
+        	background-position: -200% 0;
+        }
+        ul>li:nth-of-type(4) span{
+        	background-position: -300% 0;
+        }
+        ul>li:nth-of-type(5) span{
+        	background-position: -400% 0;
+        }*/
+     </style>
+</head>
+<body>
+	<div class="main">
+           <ul>
+              <li>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+              </li>
+              <li>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+              </li>
+              <li>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+              </li>
+              <li>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+              </li>
+              <li>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+              </li>
+           </ul>
+    </div>       
+</body>
+</html>

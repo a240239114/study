@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>监听</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+	<script src="./lib/vue-router-3.0.1.js"></script>
+</head>
+<body>
+	<div id="app">
+         <!-- 4.创建链接 -->
+         <router-link to="/login">登录</router-link>
+         <router-link to="/register">注册</router-link>
+
+         <!-- 5.创建占位符 -->
+         <router-view></router-view>
+	</div>
+
+	<script>
+	    //3.创建模板对象
+	    var login={
+	    	template:'<h1>我是登录界面</h1>'
+	    }
+	    var register={
+	    	template:'<h1>我是注册页面</h1>'
+	    }
+
+	    //2.创建路由对象
+	    var router=new VueRouter({
+	    	routes:[
+               {path:'/login',component:login},
+               {path:'/register',component:register}
+	    	]
+	    }); 
+
+        var vm=new Vue({
+        	el:'#app',
+        	data:{},
+        	methods:{},
+        	//1.定义路由
+        	router:router,
+        	watch:{
+        		'$route.path':function(newVal,oldVal){
+                     if(newVal=='/login'){
+                     	console.log('我是login')
+                     }else if(newVal=='/register'){
+                     	console.log('我是register')
+                     }
+        		}
+        	}
+        });
+	</script>
+</body>
+</html>

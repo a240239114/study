@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+       function f1(x,y) {
+       	  console.log("这个函数是Window对象的一个方法"+(x+y)+this.age);
+       }
+       window.f1(10,20);
+       var obj={
+       	  age:10,
+       	  sex:"男"
+       };
+       window.f1.apply(obj,[10,20]);
+       //apply中的对象是谁f1函数的this就指向谁
+       window.f1.call(obj,10,20);
+       console.dir(obj);
+
+
+       function Person(age,sex){
+           this.age=age;
+           this.sex=sex;
+       }
+       //通过原型添加方法
+       Person.prototype.sayHi=function(x,y){
+            console.log("您好啊"+this.sex);
+       };
+       var per=new Person(10,"男");
+       per.sayHi();
+       
+
+       console.log("=========");
+       function Student(name,sex){
+          this.name=name;
+          this.sex=sex;
+       }
+       var stu=new Student("小明","人妖");
+       per.sayHi.apply(stu,[10,20]);
+	</script>
+</body>
+</html>

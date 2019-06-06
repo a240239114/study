@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        //产生随机数的构造函数
+        function ShowRandom() {
+        	// 1--10的随机数
+        	this.number=parseInt(Math.random()*10+1);
+        }
+        ShowRandom.prototype.show1=function(){
+            //  console.log(this);
+             window.setInterval(this.show2.bind(this),1000);
+        };
+
+        //显示随机数
+        ShowRandom.prototype.show2=function(){
+            console.log(this.number);
+        };
+
+        //实例对象
+        var sr=new ShowRandom();
+        sr.show1();
+	</script>
+</body>
+</html>

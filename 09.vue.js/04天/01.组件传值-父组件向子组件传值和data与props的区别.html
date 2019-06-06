@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>传值</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+  <div id="app">
+        <com1 v-bind:parentmsg="Msg"></com1>
+  </div>
+    
+  <script>
+        var vm=new Vue({
+        	el:'#app',
+        	data:{
+        	   Msg:'我是父组件的Msg,我爱你陆洲'
+        	},
+        	components:{
+                  com1:{
+                    data:function() {
+                	    return {
+                		title:'132',
+                		content:'qqq'
+                	     }	               				
+                    },
+                    template:'<h1 @click="change">{{parentmsg}}</h1>',
+                    props:['parentmsg'],
+                    methods:{
+                    	change(){
+                    		this.parentmsg="被修改了,我真的好爱你"
+                    	}
+                    }
+                  }
+        	}
+        });
+  </script>
+</body>
+</html>

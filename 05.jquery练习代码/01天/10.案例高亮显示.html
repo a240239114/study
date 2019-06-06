@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+      $(function() {
+        $("#btn").click(function() {
+            $("div>p").mouseenter(function(){
+               $(this).css("backgroundColor","red");
+            }).mouseleave(function(){
+                $(this).css("backgroundColor","");
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="button" value="按钮" id="btn" />
+    <div>
+      <p>德国</p>
+      <p>美国</p>
+      <p>苏联</p>
+      <p>意呆利</p>
+      <p>英国</p>
+      <p>法国</p>
+    </div>
+  </body>
+</html>

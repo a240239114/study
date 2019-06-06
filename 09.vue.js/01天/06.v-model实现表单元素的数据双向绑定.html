@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-model</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+       <p>{{message}}</p>
+       <!-- 不能双向绑定 -->
+       <input type="text" v-bind:value="message" style="width: 500px">
+       <br>
+       <!-- 可以双向绑定 -->
+       <input type="text" v-model="message" style="width: 500px">
+	</div>
+	<script>
+        var vm=new Vue({
+        	el:'#app',
+        	data:{
+        		message:'爱父母,爱学习,爱生活,爱代码'
+        	}
+        })
+	</script>
+</body>
+</html>

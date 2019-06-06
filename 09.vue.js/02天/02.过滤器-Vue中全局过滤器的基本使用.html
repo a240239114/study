@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+        <p>{{message|msgGl('疯狂','哈哈')|test}}</p>
+	</div>
+	<script>
+	    Vue.filter('msgGl',function(str,arg,a) {
+	        return str.replace(/单纯/g,arg+a)	
+	    })
+        
+        Vue.filter('test',function(str){
+        	return str+"======";
+        })
+
+        var vm=new Vue({
+           el:'#app',
+           data:{
+           	 message:'我曾经也是一个单纯的少年,单纯的我,傻傻的问,谁是世界上最纯洁的人'
+           }
+        });
+	</script>
+</body>
+</html>

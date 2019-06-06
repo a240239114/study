@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+       [v-cloak]{
+         display: none;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+       <p v-cloak>++++++++++++++{{message}}-----------</p>
+       <p v-text="message">-------</p>
+       <div>{{message2}}</div>
+       <div v-html="message2"></div>
+       <input type="button" value="按钮" v-bind:title="mytitle+'123'">
+       <input type="button" value="按钮" :title="mytitle+'123'">
+       <input type="button" value="点击我呀" v-on:click="show">
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+       var app=new Vue({
+          el:'#app',
+          data:{
+          	message:'123',
+            message2:'<h1>我是大大的h1,我骄傲</h1>',
+            mytitle:'这是我自己的title'
+          },
+          methods:{
+            show:function () {
+               alert('hello')
+            }
+          }
+       })
+    </script>
+  </body>
+</html>

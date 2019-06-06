@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="common.js"></script>
+</head>
+<body>
+	<input type="button" value="隔行变色" id="btn">
+	<ul id="uu">
+		<li>奔驰</li>
+		<li>本田</li>
+		<li>现代</li>
+		<li>红旗</li>
+		<li>特斯拉</li>
+		<li>东风</li>
+	</ul>
+	<script>
+       var obj=My$("uu").getElementsByTagName("li");
+       My$("btn").onclick=function() {
+       	   //遍历
+       	   for(var i=0;i<obj.length;i++){
+       	   	  obj[i].style.backgroundColor=i%2==0?"red":"yellow";
+       	   } 
+       };
+	</script>
+</body>
+</html>

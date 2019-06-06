@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	   body,html{
+	   	 height: 100%;
+	   	 margin:0;
+	   	 padding: 0;
+	   	 overflow: hidden;
+	   }
+
+       aside{
+       	  width: 220px;
+       	  height: 100%;
+       	  background-color: #ccc;
+       	  float: left;
+       }
+
+       ul{
+       	 font-size: 20px;
+       	 line-height: 2em;
+       	 cursor: pointer;
+       }
+
+       article{
+       	 height: 100%;
+       	 background-color: #f5f5f5;
+       	 margin-left: 220px;
+       	 padding: 20px;
+         overflow: scroll;
+         line-height: 40px;
+         font-size: 20px;
+       }
+	</style>
+	<script src="data.js"></script>
+</head>
+<body>
+	<aside>
+        <ul id="list" data-id="1" data-name="sss">
+        </ul>
+	</aside>
+	<article>
+       <p id="content">
+       </p>
+	</article>
+	<script>
+      (function() {
+      	var ulElement=document.querySelector('#list');
+      	//键值对的遍历
+      	for(var item in data){//item是键==>歌名  data[item]是值===>歌词   
+         //创建li
+         var listElement=document.createElement('li');
+         listElement.innerHTML=item;
+         listElement.setAttribute('data-item',item);
+         //添加到ul
+         ulElement.appendChild(listElement);  
+      	}
+        
+        var listElements=document.querySelectorAll('#list>li');
+        var content=document.querySelector('#content');
+        // console.log(contentObj);
+        // console.log(listElements);
+      	//循环遍历给每个li添加事件====>数组的遍历
+      	for(var i=0;i<listElements.length;i++){
+           listElements[i].addEventListener('click',function(){
+               //获取item
+               // var item=this.dataset['item'];
+               var item=this.dataset.item;
+               content.innerHTML=data[item];
+
+               // // 操作历史记录
+               // if (window.history && history.pushState) {
+               //   // 添加一个新的历史记录,改变url地址的并且标记
+               //   history.pushState(item, 'title没有任何浏览器支持','?t=' + item);
+               //   //其中的item是popstate的state参数
+               // } else {
+               //   console.log('不支持');
+               // }
+               
+               if(window.history&& history.pushState){
+                     history.pushState(item,'','?t='+item);
+               }else{
+               	console.log('不支持');
+               }
+           })
+      	}
+
+      // 当我们在伪造的访问历史中前进或后退时会执行一个popstate事件,前进和后退的时候指向的函数
+      // window.addEventListener('popstate', function(e) {
+      // 	// console.log(e);
+      //   content.innerHTML = data[e.state];
+      // });
+      
+      window.addEventListener('popstate',function(e){
+      	// console.log(e);
+      	content.innerHTML=data[e.state];
+      });
+
+
+      //window.location = "https://www.baidu.com";
+      //第一次请求过来 获取地址栏中的t参数
+      //window.location可以拿到当前网页中跟地址相关的信息
+      console.log(window.location.search);
+      var search = window.location.search; // ?t=jkaljdksfla
+      // 如果地址栏中的地址有中文，会以URL编码方式呈现
+      // decodeURI 可以转换到之前中文
+      var item = search.split('=')[1]; // ['?t','jkaljdksfla']
+      if (item) {
+        // 有值 decodeURI作用就是从URL编码转换到之前的状态
+        // console.log(decodeURI(item));
+        content.innerHTML = data[decodeURI(item)];
+      }else{
+      	content.innerHTML=data["五环之歌"];
+      }
+      })();
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        ul{
+           list-style-type: none;
+           cursor: pointer;
+        }
+	</style>
+	<script src="common.js"></script>
+</head>
+<body>
+   <ul id="uu">
+   	<li>德国</li>
+   	<li>美国</li>
+   	<li>日本</li>
+   	<li>英国</li>
+   	<li>法兰西</li>
+   </ul>
+   <script>
+      var obj=My$("uu").getElementsByTagName('li');
+      for(var i=0;i<obj.length;i++){
+      	obj[i].setAttribute("score",(i+1)*10);
+      	obj[i].onclick=function(){
+      		alert(this.getAttribute("score"));
+      	};
+      }
+   </script>
+</body>
+</html>

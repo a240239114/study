@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj1 = {
+        name: "小糊涂",
+        age: 20,
+        sleep: function() {
+          console.log("睡觉了");
+        }
+      };
+
+      var obj2 = {};
+      for (var key in obj1) {
+        obj2[key] = obj1[key];
+      }
+      console.log(obj2.name);
+
+      function Person() {}
+      Person.prototype.age = "10";
+      Person.prototype.sex = "男";
+      Person.prototype.weihgt = "50kg";
+      Person.prototype.sayHi = function() {
+        console.log("你好啊");
+      };
+
+      var obj2 = {};
+      for (var key in Person.prototype) {
+        obj2[key] = Person.prototype[key];
+      }
+      console.dir(obj2);
+
+      // 继承的方式:
+      // 1.原型继承:改变原型的指向,传值的话属性是重复的,可以继承方法;
+      // 2.构造函数继承:主要解决属性的问题,属性可以自定义;
+      // 3.组合继承:原型继承+借用构造函数继承;
+      // 4.拷贝继承:就是把对象的属性和方法通过直接遍历的方式复制到另一个对象中;(只是在数组的对象中可行)
+    </script>
+  </body>
+</html>

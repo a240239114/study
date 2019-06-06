@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>品牌案例</title>
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap-3.3.7.css" />
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h3 class="panel-title">添加品牌</h3></div>
+
+        <div class="panel-body form-inline">
+          <label>
+            id: <input type="text" class="form-control" v-model="id" />
+          </label>
+
+          <label>
+            name: <input type="text" class="form-control" v-model="name" />
+          </label>
+
+          <!--
+            在Vue中，使用事件绑定机制，为元素指定处理函数的时候，如果加了小括号，就可以给函数传参了
+          -->
+          <input
+            type="button"
+            value="添加"
+            class="btn btn-primary"
+            @click="handle"
+          />
+
+          <label>
+            搜索名称关键字：
+            <input type="text" class="form-control" v-model="keywords" />
+          </label>
+        </div>
+      </div>
+
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>Ctime</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="item in search(keywords)">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.Ctime | dataFormat }}</td>
+            <td><a href="" @click.prevent="del(id)">删除</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+    <script>
+      Vue.filter("dataFormat", function(dataStr) {
+        var dt = new Date(dataStr);
+        var y = dt.getFullYear();
+        var m = dt.getMonth() + 1;
+        var d = dt.getDate();
+
+        return y + "-" + m + "-" + d;
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          id: "",
+          name: "",
+          keywords: "",
+          list: [
+            { id: 1, name: "奔驰", Ctime: new Date() },
+            { id: 2, name: "本田", Ctime: new Date() },
+            { id: 3, name: "特斯拉", Ctime: new Date() }
+          ]
+        },
+
+        methods: {
+          handle() {
+            var obj = { id: this.id, name: this.name, Ctime: new Date() };
+            this.list.push(obj);
+            this.id = this.name = "";
+          },
+
+          del(id) {
+            var index = this.list.findIndex(item => {
+              //返回值是满足下列表达式的第一个索引
+              if (this.id == id) {
+                return true;
+              }
+            });
+            this.list.splice(index, 1);
+          },
+
+          search(keywords) {
+            //根据keywords来匹配与list中相对应的数据,匹配就放在新数组newlist中
+            var newlist = [];
+            // 箭头函数
+            this.list.forEach(item => {
+              //方法对数组的每个元素执行一次提供的函数,返回值是undifined,自己设置
+              if (item.name.indexOf(keywords) != -1) {
+                newlist.push(item);
+              }
+            });
+
+            // //非箭头函数
+            // this.list.forEach(function(item){
+            //   if(item.name.indexOf(keywords)!=-1){
+            //        newlist.push(item)
+            //   }
+            // })
+            return newlist;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

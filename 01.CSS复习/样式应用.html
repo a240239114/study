@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        .a{
+        	font-size: 50px;
+        	color: red;
+        }
+        .b{
+        	font-size: 25px;
+        	color: gray;
+            text-decoration: underline;
+        	vertical-align: 10px;
+        }
+        .c{
+            font-weight: bolder;
+            font-size: 30px;
+            vertical-align: 8px;
+        }
+        .d{
+           width: 100%;
+           height: 100px;
+           text-align: center;
+           line-height: 100px;
+           display: table;
+        }
+        .e{
+           display: table-cell;
+           vertical-align: middle;
+           text-align: center;
+        }
+        /* 1.在table格式下,div可以当成是一个行内元素来定位
+           2.父===>display:table;
+             子===>display:table-cell;
+           3.垂直方向===>vertical-align: middle;
+           4.水平方向===>text-align: center;
+         */
+	</style>
+</head>
+<body>
+   <div class="d">
+      <div class="e">
+         <span class="a">慕课网</span>
+         <span class="b">只学有用的</span>
+         <span class="c"><em>!</em></span>
+      </div>                   
+   </div>
+</body>
+</html>

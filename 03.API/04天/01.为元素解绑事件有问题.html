@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+   <input type="button" value="按钮" id="btn1">
+   <input type="button" value="干掉解绑事件" id="btn2">
+   <script src="common.js"></script>
+   <script>
+       //第一种方式
+       // My$("btn1").onclick=function(){
+       // 	  console.log("你真漂亮");
+       // };
+       // My$("btn2").onclick=function(){
+       // 	   My$("btn1").onclick=null;
+       // };
+       
+       //第二种方式
+       function f1() {
+       	 console.log("你真漂亮");
+       }
+       My$("btn1").addEventListener("click",f1,false);
+       My$("btn2").addEventListener("click",function(){
+       	    My$("btn1").removeEventListener("click",f1,false);
+       },false);
+
+
+       //第三种方式
+       // function f1(){
+       // 	 console.log("你真漂亮");
+       // }
+       // function f2(){
+       // 	 console.log("陆洲");
+       // }
+       // My$("btn1").attachEvent("onclick",f1);
+       // My$("btn1").attachEvent("onclick",f2);
+       // My$("btn2").onclick=function(){
+       //     My$("btn1").detachEvent("onclick",f1);
+       // };
+   </script>
+</body>
+</html>

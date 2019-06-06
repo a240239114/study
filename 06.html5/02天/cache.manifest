@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# version 1.0.3
+
+CACHE:
+   离线访问.html
+   style.css
+   cache.manifest
+
+NETWORK:
+  *

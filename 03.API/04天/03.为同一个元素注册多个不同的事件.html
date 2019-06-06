@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮"  id="btn">
+    <script src="common.js"></script>
+    <script>
+       My$("btn").onclick=f1;
+       My$("btn").onmouseover=f1;
+       My$("btn").onmouseout=f1;
+       function f1(e){
+       	  switch(e.type){
+       	  	case"click":
+       	  	  alert("你真帅");
+       	  	  break;
+       	  	case"mouseover":
+       	  	  this.style.backgroundColor="red";
+       	  	  break;
+       	  	case"mouseout":
+       	  	  this.style.backgroundColor="green";
+       	  	  break;
+       	  }
+       }
+    </script>
+</body>
+</html>

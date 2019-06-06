@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Todo</h1>
+      <p>{{ xuanzhongdechangdu }} of {{ todos.length }} remaning [archive]</p>
+      <h1 v-for="item in todos">
+        <input type="checkbox" v-model="item.done"/>
+        <span>{{ item.title }}</span>
+      </h1>
+      <input type="text" v-model="todoText" /><button
+        v-on:click="handleAddTodoClick"
+      >
+        add
+      </button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      let todos = [
+        {
+          id: 1,
+          title: "吃饭",
+          done: true
+        },
+
+        {
+          id: 2,
+          title: "睡觉",
+          done: true
+        },
+
+        {
+          id: 3,
+          title: "打豆豆",
+          done: false
+        },
+
+        {
+          id: 4,
+          title: "敲代码",
+          done: true
+        }
+      ];
+
+      let app = new Vue({
+        el: "#app",
+        data: {
+          todoText: "",
+          todos,
+          xuanzhongdechangdu: 0
+        },
+        created() {
+          this.todos.forEach(item => {
+            item.done == true
+              ? this.xuanzhongdechangdu++
+              : this.xuanzhongdechangdu--;
+            console.log(item.done);
+          });
+        },
+        methods: {
+          handleAddTodoClick() {
+            if (this.todoText.trim().length == 0) {
+              //满足条件就不执行,不满足就执行
+              return;
+            }
+            const todos = this.todos;
+            todos.push({
+              id: todos[todos.length - 1].id + 1,
+              title: this.todoText,
+              done: false
+            });
+            this.todoText = "";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

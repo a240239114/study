@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+  <title></title> 
+  <!--js中声明函数的方法--> 
+  <script type="text/javascript"> 
+    //因为javascript是弱类型的语言，所以参数不需要加类型。函数的也不需要像c#那样要求所以路径都需要有返回值（这个不像c#语言，而且c#的方法也不需要在方法名前面在 function关键字）  
+  
+    function add(i, j) { //现在只是声明了一个函数在这里，只有调用到它的时候它才会被执行。  
+      return i + j; 
+  
+    } 
+    alert(add(5, 6)); //输出11  
+  
+    //js中并非所有路径都有返回值，如果没有返回值他就认为返回值是undefined  
+    function sum(x, y) { 
+      if (x > y) { 
+        alert(x + y); 
+      }      
+    } 
+    var z = sum(2, 6); //因为2并不大于6所以sum函数就没有返回值。如果没有返回值他就认为返回值是undefined。  
+    alert(z); //所以它就输出了undefined  
+          
+  </script> 
+</head> 
+<body> 
+  
+</body> 
+ 

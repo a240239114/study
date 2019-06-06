@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+      $(function() {
+        $("#btn").click(function() {
+            //前一个兄弟元素
+            // $("#two").prev().css("background","red");
+            //后一个兄弟元素
+            // $("#two").next().css("background","red");
+            //前面所有的兄弟元素
+            // $("#two").prevAll().css("background","red");
+            //后面所有的兄弟元素
+            // $("#two").nextAll().css("background","red");
+            //当前所有的兄弟元素
+            $("#two").siblings().css("background","red"); 
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="button" value="按钮" id="btn"/>
+    <div>
+      <p>唐朝</p>
+      <p>德国</p>
+      <p id="two">美国</p>
+      <p>苏联</p>
+      <p>意呆利</p>
+      <p>英国</p>
+      <p>法国</p>
+    </div>
+  </body>
+</html>

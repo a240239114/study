@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        .waimian{
+        	width: 800px;
+        	height: 500px;
+        	display: flex;
+        	/*方向 垂直*/
+        	flex-direction: column;
+        }
+
+        .header{
+        	height: 50px;
+            background-color: green;
+            line-height: 50px;
+            text-align:center;
+        }
+
+        .main{
+            flex: 1;
+            display: flex;
+        }
+
+        .left{
+        	flex: 1;
+        	background-color: yellow;
+        }
+
+        .right{
+        	flex: 2;
+        	background-color: pink;
+        }
+
+        .footer{
+        	height: 50px;
+            background-color: blue;
+            line-height: 50px;
+            text-align:center;
+        }
+	</style>
+</head>
+<body>
+	<div class="waimian">
+       <div class="header">头部</div>
+       <div class="main">
+           <div class="left">侧边栏</div>
+           <div class="right">主题内容</div>
+       </div>
+       <div class="footer">尾部</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>传值</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+	<div id="app">
+        <com1 v-on:func="show"></com1>
+        <p>{{msg}}</p>
+	</div>
+    
+    <!-- 将template移到body下设置内容阿萨德  -->
+    <template id="templ">
+        <div>
+           <h1>这是子组件</h1>
+           <input type="button" value="传值按钮" @click="myClick">
+        </div>
+    </template>
+
+	<script>
+        //创建模板对象
+        var com1={
+            template:"#templ",
+            data(){
+                return{
+                    sonmsg:{name:'小头儿子',age:6}
+                }
+            },
+            methods:{
+                myClick(){
+                    this.$emit('func',this.sonmsg)
+                }
+            }
+        }
+
+        var vm=new Vue({
+        	el:'#app',
+        	data:{
+        		msg:null
+        	},
+            methods:{
+                show(data){
+                   this.msg=data
+                   // console.log("我好爱你,陆洲")
+                   console.log(data)
+                }
+            },
+        	components:{
+              com1:com1
+        	}
+        });
+	</script>
+</body>
+</html>

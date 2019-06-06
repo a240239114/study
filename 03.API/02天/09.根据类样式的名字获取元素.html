@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    div{
+	    	width: 200px;
+	    	height: 100px;
+	    }
+        .cls{
+        	background-color: red;
+        }
+	</style>
+	<script src="common.js"></script>
+</head>
+<body>
+	<span class="cls">第一个span</span></br>
+	<span>第二个span</span></br>
+	<span>第三个span</span></br>
+	<div class="cls"></div>
+	<p class="cls">第一个p</p>
+	<input type="button" value="改变颜色" id="btn">
+	<script>
+        var obj=document.getElementsByClassName("cls");
+        My$("btn").onclick=function(){
+           for(var i=0;i<obj.length;i++){
+           	  obj[i].style.backgroundColor="green";
+           }	
+        };
+	</script>
+</body>
+</html>

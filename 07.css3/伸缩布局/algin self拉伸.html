@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础测试</title>
+	<style type="text/css">
+	    .main{
+	    	height: 300px;
+	    	width: 800px;
+            display: flex;
+            border:1px solid black;
+            align-items: flex-start;
+	    }
+
+        .item{
+        	width: 200px;
+        	/*height: 200px;*/
+        	background-color: pink;
+            text-align: center;
+            line-height: 200px;
+            margin: 10px;
+        }
+
+        .a{
+           align-self: stretch;
+        }
+        /*子元素只需要设置宽*/
+	</style>
+</head>
+<body>
+	<div class="main">
+       <span class="item a">1</span>
+       <span class="item b">2</span>
+       <span class="item c">3</span>
+	</div>
+</body>
+</html>

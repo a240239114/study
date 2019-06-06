@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      .box {
+        width: 400px;
+        height: 300px;
+        border: 1px solid #ccc;
+        margin: 100px auto;
+        overflow: hidden;
+      }
+
+      .hd {
+        height: 45px;
+      }
+
+      .hd span {
+        display: inline-block;
+        width: 90px;
+        background-color: pink;
+        line-height: 45px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .hd span.current {
+        background-color: purple;
+      }
+
+      .bd li {
+        height: 255px;
+        background-color: purple;
+        display: none;
+      }
+
+      .bd li.current {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">
+      <div class="hd">
+        <span class="current">体育</span> <span>娱乐</span> <span>新闻</span>
+        <span>综合</span>
+      </div>
+      <div class="bd">
+        <ul>
+          <li class="current">我是体育模块</li>
+          <li>我是娱乐模块</li>
+          <li>我是新闻模块</li>
+          <li>我是综合模块</li>
+        </ul>
+      </div>
+    </div>
+    <script src="common.js"></script>
+    <script>
+      //获取class=hd的div
+      hd = My$("box").getElementsByTagName("div")[0];
+      //获取class=bd的div
+      bd = My$("box").getElementsByTagName("div")[1];
+      //获取span数组
+      spans = hd.getElementsByTagName("span");
+      //获取li数组
+      list = bd.getElementsByTagName("li");
+      //给每个span添加点击事件
+      for (var i = 0; i < spans.length; i++) {
+        //给span添加索引
+        spans[i].setAttribute("index", i);
+        spans[i].onclick = function() {
+          //spans所有的class移除掉
+          for (var j = 0; j < spans.length; j++) {
+            spans[j].removeAttribute("class");
+          }
+          //当前的增添class="current"
+          this.setAttribute("class", "current");
+
+          //获取index
+          var index = this.getAttribute("index");
+          //list所有的class移除掉
+          for (var k = 0; k < spans.length; k++) {
+            list[k].removeAttribute("class");
+          }
+          //给index=i的li添加属性class="current"
+          list[index].setAttribute("class", "current");
+        };
+      }
+    </script>
+  </body>
+</html>

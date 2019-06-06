@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ 
+<head>
+  <meta charset="UTF-8">
+  <title>拖放操作</title>
+  <meta name="author" content="汪磊">
+  <link rel="stylesheet" href="bootstrap.css">
+  <style>
+    #target {
+      padding: 20px;
+      height: 300px;
+      border: 5px dashed #c0c0c0;
+      color: #e0e0e0;
+      font-size: 40px;
+      line-height: 260px;
+      text-align: center;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+     
+    #target.actived {
+      border-color: #888;
+      color: #eaeaea;
+      box-shadow: 0 0 80px #e0e0e0 inset;
+    }
+  </style>
+</head>
+ 
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>Drag&Drop</h1></div>
+    <div class="jumbotron">
+      <p>你好啊，你今年几岁啊，哈哈，我的今天在哪里</p>
+      <img src="toy.png" alt="">
+    </div>
+    <div id="target">
+      Drag something into here
+      <ul id="result" class="list-group"></ul>
+    </div>
+    <br>
+  </div>
+  <script>
+      //获取target
+      var target=document.querySelector('#target');
+      //获取ul==>filelist
+      var filelist=document.querySelector('#result');
+      target.addEventListener('dragenter',function(){
+           this.classList.add('actived');
+      });
+
+      target.addEventListener('dragleave',function(){
+           this.classList.remove('actived');
+      });
+      
+      target.addEventListener('dragover',function(e){
+          //阻止默认事件
+          e.preventDefault();
+          //阻止事件冒泡
+          e.stopPropagation();
+      })
+
+      //把拖拽内容放在ul中去
+      target.addEventListener('drop',function(e){
+             if(e.dataTransfer.files.length){//文件拖拽
+               //先获取文件
+              var files= e.dataTransfer.files;
+              //循环遍历添加到ul中间去
+              for(var i=0;i<files.length;i++){
+                 //创建li
+                 var li=document.createElement('li');
+                 li.setAttribute('class', 'list-group-item');
+                 //添加内容
+                 li.innerHTML = '<h5 class="list-group-item-heading">' + files[i].name + '</h5><p class="list-group-item-text">' + files[i].lastModifiedDate.toLocaleDateString() + '' + files[i].lastModifiedDate.toLocaleTimeString() + ' ' + (files[i].size / 1024).toFixed(2) + 'KB</p>';
+                   filelist.appendChild(li);
+              }
+            }else{//文字和图片拖拽
+                   // 短路运算
+                   // var data = e.dataTransfer.getData('text/plain') || e.dataTransfer.getData('text/         uri-list');
+                   console.log(e.dataTransfer.getData('text/uri-list'));
+                   var data = e.dataTransfer.getData('text/plain');
+                   if (data) {
+                     // 拖入的是文本
+                     target.innerHTML = data;
+                   } else {
+                     var img = document.createElement('img');
+                     img.src = "e.dataTransfer.getData('text/uri-list')";//????????????
+                     target.appendChild(img);
+                   }
+            }
+            this.classList.remove('actived');
+            e.preventDefault();
+            e.stopPropagation();
+      });
+  </script>
+</body>
+ 
+</html>

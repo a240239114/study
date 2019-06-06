@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>名称案例</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+	<script src="./lib/vue-router-3.0.1.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<input type="text" v-model="firstName" @keyup='getFullName'>+
+		<input type="text" v-model="lastName" @keyup='getFullName'>=
+		<input type="text" v-model="fullName">
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				firstName: '',
+				lastName: '',
+				fullName: ''
+			},
+			methods: {
+				getFullName() {
+					this.fullName = this.firstName + this.lastName
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

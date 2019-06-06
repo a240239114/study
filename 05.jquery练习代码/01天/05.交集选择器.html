@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+         //网页加载事件
+        //  $(function(){
+        //      $("#btn").click(function () {
+        //          $("p.cls").css("backgroundColor","red");
+        //      });
+        //  });
+
+         //网页加载事件
+         $(function(){
+             $("#btn").click(function(){
+                 $("p.cls").css("backgroundColor","red");
+             })
+         })
+    </script>
+</head>
+<body>
+    <input type="button" value="改变样式" id="btn">
+    <p class="cls">陆洲</p>
+    <p>我爱你</p>
+</body>
+</html>

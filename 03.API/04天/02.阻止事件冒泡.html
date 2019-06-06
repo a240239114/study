@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    *{
+	    	padding: 0;
+	    	margin:0;
+	    }
+        #dv1{
+        	height: 400px;
+        	width: 400px;
+        	background-color: green;
+        }
+        #dv2{
+        	height: 300px;
+            width: 300px;
+            background-color: red;
+        }
+        #dv3{
+        	height: 200px;
+        	width: 200px;
+        	background-color: white;
+        }
+	</style>
+</head>
+<body>
+	<div id="dv1">
+       <div id="dv2">
+          <div id="dv3"></div>
+       </div>
+	</div>
+	<script src="common.js"></script>
+	<script>
+        My$("dv3").onclick=function(e){
+            console.log("你真漂亮,陆洲3");
+            e.stopPropagation();
+            console.log(e.eventPhase);
+        };
+        My$("dv2").onclick=function(e){
+            console.log("你真漂亮,陆洲2");
+            e.stopPropagation();
+            console.log(e.eventPhase);
+        };
+        My$("dv1").onclick=function(e){
+            console.log("你真漂亮,陆洲1");
+            console.log(e.eventPhase);
+        };
+        // stopPropagation
+        // stopPropagation
+        // stopPropagation
+        // stopPropagation
+        // stopPropagation
+        // stopPropagation
+        // eventPhase
+        // eventPhase
+        // eventPhase
+	</script>
+</body>
+</html>

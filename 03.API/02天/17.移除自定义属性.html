@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        div{
+        	width: 200px;
+        	height: 200px;
+        	background-color: red;
+        }
+        .cls{
+           background-color: green;
+        }
+	</style>
+	<script src="common.js"></script>
+</head>
+<body>
+	<input type="button" value="移除属性" id="btn">
+	<div class="cls" id="dv"></div>
+	<script>
+        My$("btn").onclick=function(){
+        	My$("dv").removeAttribute("class");
+        };
+	</script>
+</body>
+</html>

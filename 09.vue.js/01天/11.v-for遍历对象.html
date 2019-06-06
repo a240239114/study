@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(val,key,i) in list">{{val}}---->{{key}}---->{{i}}</p>
+    </div>
+	<script>
+	  new Vue({
+       el:'#app',
+	   data:{
+          list:{id:1,
+                name:'America',
+                gender:'男'
+               }          
+	   }
+	  })
+    </script>
+</body>
+</html>

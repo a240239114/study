@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //人的构造函数
+      function Person(name, age, sex, weihgt) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.weihgt = weihgt;
+      }
+      Person.prototype.sayHi = function() {
+        console.log("你好啊");
+      };
+
+      //学生的构造函数
+      function Student(name, age, sex, weihgt, score) {
+        Person.call(this, name, age, sex, weihgt);
+        this.score = score;
+      }
+
+      //实例化对象Student
+      var stu1 = new Student("小明", 20, "男", "50kg", 100);
+      console.log(stu1.name, stu1.age, stu1.sex, stu1.weihgt, stu1.score);
+      // stu1.sayHi();
+    </script>
+  </body>
+</html>

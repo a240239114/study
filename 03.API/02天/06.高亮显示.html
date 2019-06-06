@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="common.js"></script>
+</head>
+<body>
+   <ul id="uu">
+   	<li>德意志</li>
+   	<li>美利坚</li>
+   	<li>英国</li>
+   	<li>法兰西</li>
+   	<li>以色列</li>
+   </ul>
+   <script>
+      var obj=My$("uu").getElementsByTagName("li");
+      for(var i=0;i<obj.length;i++){
+      	 obj[i].onmouseover=function() {
+      	 	 this.style.backgroundColor="red";
+      	 };
+      	 obj[i].onmouseout=function() {
+      	 	 this.style.backgroundColor="";
+      	 };
+      }
+   </script>
+</body>
+</html>

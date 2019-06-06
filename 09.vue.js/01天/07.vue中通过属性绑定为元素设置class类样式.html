@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+      .red {
+        color: red;
+      }
+
+      .thin {
+        font-weight: 200;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .active {
+        letter-spacing: 0.5em;
+      }
+    </style>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 三元表达式 -->
+      <p :class="['red','italic',flag?'active':'']">爱父母,爱学习,爱朋友</p>
+      <br />
+      <!-- 嵌套对象 -->
+      <p :class="['red','italic',{'active':flag}]">爱父母,爱学习,爱朋友</p>
+      <br />
+      <!-- 直接使用对象 -->
+      <p :class="classobj">爱父母,爱学习,爱朋友</p>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          flag: false,
+          classobj: { red: true, thin: true, italic: false, active: false }
+        }
+      });
+    </script>
+  </body>
+</html>

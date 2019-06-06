@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+      }
+    </style>
+    <script src="jquery-1.12.1.js"></script>
+    <script>
+      $(function() {
+        $("#btn").click(function() {
+          //DIV下所有span子元素
+          //$("div span").css("backgroundColor","red");
+          //DIV下直接的span子元素
+          //$("div>span").css("backgroundColor","red");
+          //DIV后面所有的兄弟元素
+          //$("div~span").css("backgroundColor","red");
+          //DIV前面所有的兄弟元素
+          $("div+span").css("backgroundColor","red");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="button" value="改变样式" id="btn" />
+    <span>我是DIV前面的SPAN</span>
+    <div>
+      <p>我是P</p>
+      <ul>
+        <li><span>我是LI下的SPAN1</span> <span>我是LI下的SPAN2</span></li>
+      </ul>
+      <span>我是DIV下的SPAN</span>
+    </div>
+    <span>我是DIV后面的SPAN</span>
+  </body>
+</html>

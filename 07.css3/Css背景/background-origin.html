@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>origin修改背景图片的起始位置 定位原点</title>
+	<style type="text/css">
+           div{
+        	width: 200px;
+        	height: 200px;
+        	padding: 52px;
+        	margin: 50px auto;
+        	border:5px dashed red;
+                background-color: yellow;
+                background-image: url(images/border.png);
+                background-repeat: no-repeat;
+                /*background-origin: border-box;*/
+               /* background-origin: content-box;*/
+                background-origin: padding-box;/*默认*/
+                background-clip: content-box;
+              }
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

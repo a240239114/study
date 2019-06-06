@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+	<script src="./lib/vue-router-3.0.1.js"></script>
+	<style type="text/css">
+	      *{
+	      	margin: 0;
+	      	padding: 0;
+	      }
+          .header{
+          	 height: 80px;
+          	 background-color: red;
+          } 
+          .contain{
+              display: flex;
+          }
+          .left{
+          	flex: 2;
+          	height: 500px;
+          	background-color: yellow;
+          }
+          .main{
+          	flex: 8;
+          	height: 500px;
+          	background-color: green;
+          }
+	</style>
+</head>
+<body>
+	<div id="app">
+	   <!-- 默认的header -->
+       <router-view></router-view>
+       <div class="contain">
+           <router-view name="left"></router-view>
+           <router-view name="right"></router-view>
+       </div>
+	</div>
+
+	
+	<script>
+        var header={
+        	template:'<h1 class="header">头部</h1>'
+        }
+        var leftBox={
+        	template:'<h1 class="left">左边栏</h1>'
+        }
+        var rightBox={
+        	template:'<h1 class="main">右边栏</h1>'
+        }
+
+        var routerObj=new VueRouter({
+        	routes:[
+               {path:'/',components:{
+                   'default':header,
+                   'left':leftBox,
+                   'right':rightBox
+                }
+              }
+        	]
+        })
+
+        var vm=new Vue({
+        	el:'#app',
+        	data:{},
+        	methods:{},
+        	router:routerObj
+        })
+	</script>
+</body>
+</html>

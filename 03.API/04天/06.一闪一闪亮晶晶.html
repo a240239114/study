@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        #dv{
+        	width: 600px;
+        	height: 600px;
+        	border: 1px solid red;
+        	background-color: black;
+        	position: relative;
+        }
+        span{
+            position: absolute;
+            color: yellow;
+            font-size: 30px;
+        }
+	</style>
+</head>
+<body>
+	<input type="button" value="开始" id="btn">
+	<div id="dv"></div>
+	<script src="common.js"></script>
+	<script>
+	   var spanobj=document.createElement("span");
+       My$("dv").appendChild(spanobj);
+       spanobj.innerText="★";
+       My$("btn").onclick=function(){
+       	 setInterval(function(){
+           // My$("dv").innerHTML="<span>★</span>";
+       	   //产生随机数
+       	   var x=parseInt(Math.random()*599+1);
+       	   var y=parseInt(Math.random()*599+1);
+       	   My$("dv").firstElementChild.style.top=x+"px";
+       	   My$("dv").firstElementChild.style.left=y+"px";
+       	 },10);
+       };  
+	</script>
+</body>
+</html>
